@@ -33,12 +33,5 @@ public class Greeting {
     public void setMessage(String message) {
         this.message = message;
     }
-    
-    public Greeting getGreetingById(Long id) {
-        return greetingRepository.findById(id).orElse(null);
-    }
-   
-    public List<Greeting> getAllGreetings() {
-        return greetingRepository.findAll();
-    }
+
 }

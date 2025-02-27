@@ -7,7 +7,9 @@ import java.util.List;
 @Service
 public class GreetingService
 {
-   
+    @Autowired
+   private GreetingRepository greetingRepository;
+    
     public String getGreeting() {
         return "Hello World";
     }
@@ -23,9 +25,16 @@ public class GreetingService
             return "Hello World";
         }
     }
-
+    public Greeting getGreetingById(Long id) {
+        return greetingRepository.findById(id).orElse(null);
+    }
    public Greeting saveGreeting(Greeting greeting) {
         return greetingRepository.save(greeting);
     }
-
+    public List<Greeting> getAllGreetings() {
+        return greetingRepository.findAll();
+    }
+    public Greeting updateGreeting(Greeting greeting) {
+        return greetingRepository.save(greeting);
+    }
 }
