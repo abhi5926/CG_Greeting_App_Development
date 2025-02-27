@@ -8,24 +8,21 @@ import java.util.List;
 @RequestMapping("/greeting")
 public class GreetingController
 {
-    private final GreetingService greetingService;
 
     @Autowired
-    public GreetingController(GreetingService greetingService) {
-        this.greetingService = greetingService;
-    }
+    private GreetingService greetingService;
 
-    @GetMapping
+    @GetMapping("/get")
     public String getGreeting(@RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName) {
         return  greetingService.getGreeting(firstName, lastName);
     }
 
-    @PostMapping
+    @PostMapping("/post")
     public Greeting createGreeting(@RequestBody Greeting greeting) {
         return greetingService.saveGreeting(greeting);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
     public Greeting getGreetingById(@PathVariable Long id) {
         return greetingService.getGreetingById(id);
     }
@@ -35,10 +32,14 @@ public class GreetingController
         return greetingService.getAllGreetings();
     }
 
-    @PutMapping
+    @PutMapping("/update")
     public Greeting updateGreeting(@RequestBody Greeting greeting) {
         return greetingService.updateGreeting(greeting);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public void deleteGreeting(@PathVariable Long id) {
+        greetingService.deleteGreeting(id);
+    }
 
 }

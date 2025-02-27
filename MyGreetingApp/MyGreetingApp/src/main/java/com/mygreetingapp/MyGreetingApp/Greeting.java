@@ -15,8 +15,9 @@ public class Greeting {
 
     public Greeting() {
     }
-
-    // Getters and Setters
+    public Greeting(String message) {
+        this.message=message;
+    }
 
     public Long getId() {
         return id;

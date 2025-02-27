@@ -37,4 +37,7 @@ public class GreetingService
     public Greeting updateGreeting(Greeting greeting) {
         return greetingRepository.save(greeting);
     }
+    public void deleteGreeting(Long id) {
+        greetingRepository.deleteById(id);
+    }
 }
