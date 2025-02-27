@@ -24,4 +24,8 @@ public class GreetingService
         }
     }
 
+   public Greeting saveGreeting(Greeting greeting) {
+        return greetingRepository.save(greeting);
+    }
+
 }
